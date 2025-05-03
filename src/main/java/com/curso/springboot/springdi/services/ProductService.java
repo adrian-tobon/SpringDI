@@ -14,10 +14,12 @@ public class ProductService {
 	public List<Product> findAll(){
 
 	return repository.findAll().stream().map(p -> {
-			Double priceImp = p.getPrice() *1.19d;
-			Product product = new Product(p.getId(), p.getName(), priceImp.longValue());
-			//p.setPrice(priceImp.longValue());			
+		
+			Double priceIva = p.getPrice() *1.19d;
+			Product product = (Product)p.clone();
+			product.setPrice(priceIva.longValue());			
 			return product;
+			
 		}).collect(Collectors.toList());	
 		
 	}
