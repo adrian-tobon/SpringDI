@@ -3,6 +3,8 @@ package com.curso.springboot.springdi.services;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 //import org.springframework.stereotype.Component;
 //import org.springframework.beans.factory.annotation.Autowired;
@@ -15,16 +17,17 @@ import com.curso.springboot.springdi.repositories.ProductRepository;
 @Service
 public class ProductServiceImpl implements ProductService{
 	
-	
+	@Autowired
+	@Qualifier("foo")
 	private ProductRepository repository;
 	
 	@Value("${values.tax}")
 	private Double Iva;
 	
-	public ProductServiceImpl(ProductRepository repository) {
+	/*public ProductServiceImpl(@Qualifier("foo") ProductRepository repository) {
 		super();
 		this.repository = repository;
-	}
+	}*/
 
 	@Override
 	public List<Product> findAll(){

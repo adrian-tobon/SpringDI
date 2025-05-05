@@ -3,6 +3,7 @@ package com.curso.springboot.springdi.repositories;
 import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.context.annotation.Primary;
 //import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
@@ -11,6 +12,7 @@ import com.curso.springboot.springdi.models.Product;
 //normalmente esta clase es para acceso a una DB
 
 //@Component
+@Primary
 @Repository
 public class ProductRepositoryImpl implements ProductRepository {
 
