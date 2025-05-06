@@ -12,7 +12,7 @@ import com.fasterxml.jackson.core.exc.StreamReadException;
 import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-@Repository("productJson")
+
 public class ProductRepositoryJson implements ProductRepository {
 	
 	private List<Product> list;
@@ -40,9 +40,8 @@ public class ProductRepositoryJson implements ProductRepository {
 	}
 
 	@Override
-	public Product findById(Long id) {
-		
-		return null;
+	public Product findById(Long id) {		
+		return list.stream().filter(p -> p.getId().equals(id)).findFirst().orElse(null);
 	}
 
 }
