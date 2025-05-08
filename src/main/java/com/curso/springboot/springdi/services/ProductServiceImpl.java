@@ -38,7 +38,7 @@ public class ProductServiceImpl implements ProductService{
 			Double priceIva = p.getPrice() * Iva;
 			Product product = (Product)p.clone();
 			product.setPrice(priceIva.longValue());
-			p.setPrice(priceIva.longValue());
+			//p.setPrice(priceIva.longValue());
 			return product;
 			//return p;
 			
